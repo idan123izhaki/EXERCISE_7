@@ -18,7 +18,9 @@ public:
 	BSNode<T>* search(BSNode<T>* root, T val);
 	BSNode<T>* getRoot() const;
 	void setRoot(BSNode<T>*);
-	void printTreeTemp(const BSNode<T>*) const;
+	void printTreeTempInOrder(const BSNode<T>*) const;
+	void printTreeTempPreOrder(const BSNode<T>*) const;
+	void printTreeTempPostOrder(const BSNode<T>*) const;
 	void DestroyRecursive(BSNode<T>*);
 	~BSTree();
 };

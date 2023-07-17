@@ -27,7 +27,7 @@ BSTree<T>& BSTree<T>::operator=(const BSTree<T>& other)
     {
         this->_root = nullptr;
         if (other.getRoot() != nullptr)
-            tempCopyTree(other._root, this->_root);
+            tempCopyTree(other._root, *this);
     }
     return *this;
 }
@@ -105,11 +105,31 @@ void BSTree<T>::DestroyRecursive(BSNode<T>* node)
 }
 
 template<class T>
-void BSTree<T>::printTreeTemp(const BSNode<T>* nodeTree) const
+void BSTree<T>::printTreeTempInOrder(const BSNode<T>* nodeTree) const
 {
     if (nodeTree == nullptr)
         return;
-    printTreeTemp(nodeTree->getLeft());
+    printTreeTempInOrder(nodeTree->getLeft());
     std::cout << nodeTree->getData() << " ";
-    printTreeTemp(nodeTree->getRight());
-} 
+    printTreeTempInOrder(nodeTree->getRight());
+}
+
+template<class T>
+void BSTree<T>::printTreeTempPreOrder(const BSNode<T>* nodeTree) const
+{
+    if (nodeTree == nullptr)
+        return;
+    std::cout << nodeTree->getData() << " ";
+    printTreeTempPreOrder(nodeTree->getLeft());
+    printTreeTempPreOrder(nodeTree->getRight());
+}
+
+template<class T>
+void BSTree<T>::printTreeTempPostOrder(const BSNode<T>* nodeTree) const
+{
+    if (nodeTree == nullptr)
+        return;
+    printTreeTempPostOrder(nodeTree->getLeft());
+    printTreeTempPostOrder(nodeTree->getRight());
+    std::cout << nodeTree->getData() << " ";
+}
