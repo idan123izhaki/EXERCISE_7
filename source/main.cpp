@@ -1,8 +1,7 @@
 #include <iostream>
 #include "BSTree.hpp"
 #include "BSNode.hpp"
-#include "BSTree.cpp"
-#include "BSNode.cpp"
+
 
 int main()
 {
